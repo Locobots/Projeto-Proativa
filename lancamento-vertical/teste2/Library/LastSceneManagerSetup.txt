@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/fisica.unity
+  isLoaded: 1
+  isActive: 1
