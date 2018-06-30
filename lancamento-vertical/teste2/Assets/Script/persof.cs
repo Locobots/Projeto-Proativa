@@ -56,6 +56,7 @@ public class persof : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O)) { body.transform.position = new Vector3(0, 0, -2); posicao = 0; t = 0; }
 
         if (body.position.x > 34.15599) { body.position = new Vector3(0, body.position.y, -2); aco++; }
+        else if(body.position.x < 0) { body.position = new Vector3(34156/1000, body.position.y, -2); aco--; }
     }
     //_____________________________________________________________________________________________________________________________________
     // Fixando apenas um pixel
