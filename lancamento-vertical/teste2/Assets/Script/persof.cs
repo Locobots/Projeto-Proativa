@@ -96,11 +96,11 @@ public class persof : MonoBehaviour
         //Saída
         GUI.contentColor = Color.black; 
         GUI.Label(new Rect(10, 10, 200, 60), "TEMPO:");
-        GUI.Label(new Rect(100, 10, 200, 30), t.ToString());
+        GUI.Label(new Rect(100, 10, 200, 30), t.ToString("0.00"));
         GUI.Label(new Rect(10, 30, 200, 60), "ALTURA-MAX");
-        GUI.Label(new Rect(100, 30, 200, 30), altM.ToString());
+        GUI.Label(new Rect(100, 30, 200, 30), altM.ToString("0.000"));
         GUI.Label(new Rect(10, 50, 200, 60), "DELTA-X");
-        GUI.Label(new Rect(100, 50, 200, 30), posicao.ToString());
+        GUI.Label(new Rect(100, 50, 200, 30), posicao.ToString("0.000"));
 
         // Entrada
         
