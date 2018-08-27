@@ -53,7 +53,11 @@ public class persof : MonoBehaviour
         // se meu espaço for clicado, e velocidade não for zero, e meu objeto estiver no chão então aux = 1;
         if (Input.GetKeyDown(KeyCode.Space) && velocidade != 0 && aux == 0) { aux = 1; aco = 0; } 
         // se minha tecla o for clicada a posição do meu objeto é (0,0,-2), o tempo zera, o delta x zera;
-        if (Input.GetKeyDown(KeyCode.O)) { body.transform.position = new Vector3(0, 0, -2); posicao = 0; t = 0; }
+        if (Input.GetKeyDown(KeyCode.O)) {
+            body.transform.position = new Vector3(0, 0, -2);
+            posicao = 0; t = 0; aco = 0;
+            body.velocity = new Vector2(0, 0);
+        }
 
         if (body.position.x > 34.15599) { body.position = new Vector3(0, body.position.y, -2); aco++; }
         else if(body.position.x < 0) { body.position = new Vector3(34156/1000, body.position.y, -2); aco--; }
@@ -107,8 +111,8 @@ public class persof : MonoBehaviour
         GUI.Label(new Rect(220, 10, 100, 30), "VELOCIDADE: ");
         GUI.Label(new Rect(220, 50, 100, 30), "ÂNGULO: ");
         GUI.contentColor = Color.white;
-        ve = GUI.TextField(new Rect(305, 10, 100, 30), ve, 3);
-        an = GUI.TextField(new Rect(305, 50, 100, 30), an, 3);
+        ve = GUI.TextField(new Rect(305, 10, 100, 30), ve, 4);
+        an = GUI.TextField(new Rect(305, 50, 100, 30), an, 4);
         float.TryParse(ve, out velocidade);
         float.TryParse(an, out angulo);
 
