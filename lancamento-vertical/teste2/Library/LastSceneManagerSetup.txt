@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/fisica.unity
+- path: "C:/Users/pedro/OneDrive/\xC1rea de Trabalho/Projeto-Proativa/Plano Inclinado/Assets/Scenes/SampleScene.unity"
   isLoaded: 1
   isActive: 1
