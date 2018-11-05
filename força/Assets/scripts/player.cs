@@ -70,7 +70,7 @@ public class player : MonoBehaviour {
             
             body.velocity = new Vector2(0, 0);
             body2.velocity = new Vector2(0, 0);
-            body2.AddForce(new Vector2(1,0)*F*hl);
+            body2.AddForce(new Vector2(1,0)*F*10*hl);
         }
 	}
 	void OnGUI() // GUI colocar texto na tela, e acrescentar valores

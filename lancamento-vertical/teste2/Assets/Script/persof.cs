@@ -66,9 +66,10 @@ public class persof : MonoBehaviour
 
         if (Input.GetKey(KeyCode.P)) // sistem de pausa
         {
-            Time.timeScale = 0;
+            
             if (aux == 0) { normal.SetActive(true); } // se chão tiver acionado tem normal
             peso.SetActive(true);
+            Time.timeScale = 0;
         }
         if (Input.GetKey(KeyCode.Space))
         {
