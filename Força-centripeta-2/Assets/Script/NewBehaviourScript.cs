@@ -20,7 +20,7 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update()
     {
        
-        if (aux == true) { body.velocity = Vector2.Perpendicular(body.position) * v; }
+        if (aux == true && v != 0) { body.velocity = Vector2.Perpendicular(body.position) * v; }
         body.mass = m;
        
     }
