@@ -8,30 +8,35 @@ public class Personagem : MonoBehaviour {
     string text = "";
     bool j = true,h = false;
     Rigidbody2D body;
-
+    public GameObject setapeso;
+    public GameObject setanormal;
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
         altura = -3.714304f;
         tempo = 0;
+        setanormal.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !h){
+        setapeso.transform.position = new Vector3(body.transform.position.x + 0.07f, body.transform.position.y - 0.786554f, body.transform.position.z);
+        setanormal.transform.position = new Vector3(body.transform.position.x + 0.07f, body.transform.position.y + 0.793446f, body.transform.position.z);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !h && j){
             tempo = 0;
-            h = true;
             j = false;
             Time.timeScale = 1;
+            h = true;
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
             j = true;
             Time.timeScale = 1;
-            
+            setanormal.SetActive(false);
         }
 
      
@@ -54,6 +59,7 @@ public class Personagem : MonoBehaviour {
         {
             h = false;
             tempo = tempo / 60;
+            setanormal.SetActive(true);
         }
     }
 
