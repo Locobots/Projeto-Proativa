@@ -22,6 +22,7 @@ public class NewBehaviourScript : MonoBehaviour {
      }
     void Update()
     {
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.O))
         {
             body.transform.position = new Vector3(0.08f, -0.76f, 0);
@@ -37,6 +38,11 @@ public class NewBehaviourScript : MonoBehaviour {
         }
         setanormal.transform.RotateAround(centro.transform.position, new Vector3(0,0,1), v * Time.deltaTime);
         body.AddForce(Vector2.down * m * 9.8f);
+=======
+       
+        if (aux == true && v != 0) { body.velocity = Vector2.Perpendicular(body.position) * v; }
+        body.mass = m;
+>>>>>>> b4adf0b40cbf58fa15cb847041c828509353fed9
        
     }
 

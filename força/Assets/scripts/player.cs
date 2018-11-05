@@ -124,10 +124,14 @@ public class player : MonoBehaviour {
             
             body.velocity = new Vector2(0, 0);
             body2.velocity = new Vector2(0, 0);
+<<<<<<< HEAD
             body2.AddForce(new Vector2(1,0)*F*hl);
             setaresultante.transform.localScale = new Vector2(F / (5000*m), F / (5000*m));
             setaresultante.SetActive(true);
 
+=======
+            body2.AddForce(new Vector2(1,0)*F*10*hl);
+>>>>>>> b4adf0b40cbf58fa15cb847041c828509353fed9
         }
 	}
 	void OnGUI() // GUI colocar texto na tela, e acrescentar valores
