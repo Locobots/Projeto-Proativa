@@ -16,12 +16,15 @@ public class NewBehaviourScript : MonoBehaviour {
         m = 1;
         v = 10.0f;
         aux = true;
+        ms = vs = "1";
+
      }
     void Update()
     {
        
         if (aux == true && v != 0) { body.velocity = Vector2.Perpendicular(body.position) * v; }
-        body.mass = m;
+
+        body.AddForce(Vector2.down * m * 9.8f);
        
     }
 

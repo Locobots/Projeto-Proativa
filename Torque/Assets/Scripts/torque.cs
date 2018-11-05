@@ -4,37 +4,26 @@ using UnityEngine;
 
 public class torque : MonoBehaviour {
 
-    public float distancia, forca;
-    public string distancia2, forca2;
 
-    public float cima, giro;
+    public Transform prego;
+
 
     void Start ()
     {
-        distancia = forca = 0.0f;
-        distancia2 = "0";
-        forca2 = "0";
+        
 
     }
 
     void Update () {
-    if ((Input.GetKey(KeyCode.UpArrow)) || (Input.GetKey(KeyCode.RightArrow)))
-        transform.Translate(Vector3.up * ((distancia*forca)/400) * Time.deltaTime);
-
-    if ((Input.GetKey(KeyCode.DownArrow)) || (Input.GetKey(KeyCode.LeftArrow)) )
-        transform.Translate(-Vector3.up * ((distancia * forca) / 400) * Time.deltaTime);
-
-    if ((Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.DownArrow)))
-        transform.Rotate(Vector3.up, -(distancia*forca) * Time.deltaTime);
-
-    if ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.UpArrow)))
-        transform.Rotate(Vector3.up, (distancia * forca) * Time.deltaTime);
-	}
+        Vector3 a = new Vector3(-0.96f, 0, -7f);
+        transform.RotateAround(prego.position, a , 600 * Time.deltaTime);
+        
+    }
 
 
 void OnGUI()
 {
-    GUI.contentColor = Color.black;
+ /*   GUI.contentColor = Color.black;
     GUI.Label(new Rect(20, 20, 100, 60), "Torque:");
     GUI.Label(new Rect(90, 20, 100, 30), (distancia*forca).ToString());
 
@@ -46,6 +35,7 @@ void OnGUI()
     forca2 = GUI.TextField(new Rect(90, 100, 50, 30), forca2, 3);
     float.TryParse(forca2, out forca);
     float.TryParse(distancia2, out distancia);
+*/
 }
 
 

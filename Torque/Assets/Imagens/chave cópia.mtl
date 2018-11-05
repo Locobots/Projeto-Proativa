@@ -1,0 +1,53 @@
+newmtl Camada 0 cópia Material de inflação da frente
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 6.062866
+d 1.000000
+Tr 0.000000
+map_Kd -s 1.001713 0.995640 1.0 -o -0.002601 0.004797 1.0 Camada 0 cópia.psd 
+
+newmtl Camada 0 cópia Material de chanfro da frente
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 6.062866
+d 1.000000
+Tr 0.000000
+map_Kd -s 1.001713 0.995640 1.0 -o -0.002601 0.004797 1.0 Camada 0 cópia.psd 
+
+newmtl Camada 0 cópia Material de extrusão
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 6.062866
+d 1.000000
+Tr 0.000000
+map_Kd Camada 0 cópia Material de extrusão - Textura padrão.psd 
+
+newmtl Camada 0 cópia Material de chanfro do verso
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 6.062866
+d 1.000000
+Tr 0.000000
+map_Kd -s 1.001713 0.995640 1.0 -o -0.002601 0.004797 1.0 Camada 0 cópia.psd 
+
+newmtl Camada 0 cópia Material de inflação do verso
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 6.062866
+d 1.000000
+Tr 0.000000
+map_Kd -s 1.001713 0.995640 1.0 -o -0.002601 0.004797 1.0 Camada 0 cópia.psd 
+
+newmtl Material do plano do solo
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ns 6.062866
+d 0.600000
+Tr 0.400000
+
