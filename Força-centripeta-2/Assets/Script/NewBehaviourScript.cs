@@ -19,6 +19,8 @@ public class NewBehaviourScript : MonoBehaviour {
         m = 1;
         v = 10.0f;
         aux = true;
+        ms = vs = "1";
+
      }
     void Update()
     {
@@ -41,8 +43,13 @@ public class NewBehaviourScript : MonoBehaviour {
 =======
        
         if (aux == true && v != 0) { body.velocity = Vector2.Perpendicular(body.position) * v; }
+<<<<<<< HEAD
+
+        body.AddForce(Vector2.down * m * 9.8f);
+=======
         body.mass = m;
 >>>>>>> b4adf0b40cbf58fa15cb847041c828509353fed9
+>>>>>>> master
        
     }
 
