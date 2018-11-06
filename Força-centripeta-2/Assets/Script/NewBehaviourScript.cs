@@ -8,7 +8,10 @@ public class NewBehaviourScript : MonoBehaviour {
     public string vs, ms;
     public bool aux;
     public Rigidbody2D body;
-    
+    public GameObject setapeso;
+    public GameObject setanormal;
+    public GameObject centro;
+    private Vector3 a;
     // Use this for initialization
     void Start()
     {
@@ -21,10 +24,32 @@ public class NewBehaviourScript : MonoBehaviour {
      }
     void Update()
     {
+<<<<<<< HEAD
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            body.transform.position = new Vector3(0.08f, -0.76f, 0);
+            body.transform.rotation = Quaternion.EulerRotation(0, 0, 0);
+            body.velocity = new Vector2(0, 0);
+        }
+        setanormal.transform.position = new Vector3(body.transform.position.x + 0.07f, body.transform.position.y - 2.4222f, body.transform.position.z);
+        setapeso.transform.position = new Vector3(body.transform.position.x + 0.07f, body.transform.position.y - 2.4222f, body.transform.position.z);
+
+
+        if (aux == true) {
+            body.velocity = Vector2.Perpendicular(body.position) * v;
+        }
+        setanormal.transform.RotateAround(centro.transform.position, new Vector3(0,0,1), v * Time.deltaTime);
+        body.AddForce(Vector2.down * m * 9.8f);
+=======
        
         if (aux == true && v != 0) { body.velocity = Vector2.Perpendicular(body.position) * v; }
+<<<<<<< HEAD
 
         body.AddForce(Vector2.down * m * 9.8f);
+=======
+        body.mass = m;
+>>>>>>> b4adf0b40cbf58fa15cb847041c828509353fed9
+>>>>>>> master
        
     }
 
@@ -33,6 +58,7 @@ public class NewBehaviourScript : MonoBehaviour {
         if (coll.gameObject.name == "GameObject")
         {
             aux = true;
+            
         }
     }
     void OnCollisionExit2D(Collision2D coll)
