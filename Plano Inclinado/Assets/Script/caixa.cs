@@ -6,32 +6,29 @@ public class caixa : MonoBehaviour {
 
     public float speed;
     public Rigidbody2D body;
-    string amb;
+    string amb, ambiente;
     float vx;
     int aux;
     public GameObject setapeso;
-    public GameObject setapeso2;
-    public GameObject setapeso3;
     public GameObject setanormal;
-    public GameObject setanormal2;
-    public GameObject setanormal3;
     public GameObject setaatrito;
     public GameObject setaatrito2;
     public GameObject setaatrito3;
+   
     private bool ispause;
+    public GameObject normalinclinada;
+    public GameObject atritoinclinada;
+    public GameObject atrito2inclinada;
+    public GameObject atrito3inclinada;
 
     // Use this for initialization
-    void Start () {
+    void Start () { 
         body = GetComponent<Rigidbody2D>();
         setapeso.SetActive(false);
-        setapeso2.SetActive(false);
-        setapeso3.SetActive(false);
         setanormal.SetActive(false);
-        setanormal2.SetActive(false);
-        setanormal3.SetActive(false);
-     //   setaatrito.SetActive(false);
-      //  setaatrito2.SetActive(false);
-      //  setaatrito3.SetActive(false);
+        setaatrito.SetActive(false);
+        setaatrito2.SetActive(false);
+        setaatrito3.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -44,7 +41,7 @@ public class caixa : MonoBehaviour {
         //}// cria aceleração
         if (Input.  GetKeyDown(KeyCode.O)) {
             body.transform.position = new Vector3(0, 0, 0);
-            body.transform.rotation = new Quaternion(0, 0, 0,0);
+            body.transform.rotation = Quaternion.EulerRotation(0, 0, 0);
             body.velocity = new Vector2(0, 0);
             aux = 0;
         }
@@ -53,82 +50,92 @@ public class caixa : MonoBehaviour {
             
             if (ispause){
                 Time.timeScale = 0;
-                setapeso.transform.position = new Vector3(body.position.x, body.position.y - (9/5));
-                setanormal.transform.position = body.position;
+                setapeso.transform.position = new Vector3(body.transform.position.x + 0.07f, body.transform.position.y - 1.65f, body.transform.position.z);
+                setapeso.transform.rotation = Quaternion.EulerRotation(0, 0, 0);
+          
+                if (body.transform.position.x < 0.8f)
+                {
+                    setanormal.transform.position = new Vector3(body.transform.position.x, body.transform.position.y + 1.48f, body.transform.position.z);
+                    setaatrito.transform.position = new Vector3(body.transform.position.x - 0.721236f, body.transform.position.y - 0.3961106f, body.transform.position.z);
+                        setanormal.SetActive(true);
+                    setaatrito.SetActive(true);
+                    
+
+
+                }
+                else if (body.transform.position.x > 0.8f && body.transform.position.x < 14)
+                {
+                    
+                    normalinclinada.transform.position = new Vector3(body.transform.position.x + 0.668203f, body.transform.position.y + 1.48f, body.transform.position.z);
+                    atritoinclinada.transform.position = new Vector3(body.transform.position.x - 0.881289f, body.transform.position.y + 0.105972f, body.transform.position.z);
+                        normalinclinada.SetActive(true);
+                    atritoinclinada.SetActive(true);
+                }
+                else if (body.transform.position.x > 14 && body.transform.position.x < 21.22f)
+                {
+                    setanormal.transform.position = new Vector3(body.transform.position.x, body.transform.position.y + 1.48f, body.transform.position.z);
+                        setanormal.SetActive(true);
+                    if (body.transform.position.x < 16)
+                    { 
+                        setaatrito.transform.position = new Vector3(body.transform.position.x - 0.721236f, body.transform.position.y - 0.3961106f, body.transform.position.z);
+                        setaatrito.SetActive(true);
+                    }
+                    else
+                    {
+                        setaatrito2.transform.position = new Vector3(body.transform.position.x - 0.721236f, body.transform.position.y - 0.3961106f, body.transform.position.z);
+                        setaatrito2.SetActive(true);
+                    }
+
+
+                }
+                else if (body.transform.position.x > 22.1f && body.transform.position.x < 33.15f)
+                {
+                    atrito2inclinada.transform.position = new Vector3(body.transform.position.x - 0.8646961f, body.transform.position.y - 0.0763028f, body.transform.position.z);
+                    normalinclinada.transform.position = new Vector3(body.transform.position.x + 0.668203f, body.transform.position.y + 1.48f, body.transform.position.z);
+                    normalinclinada.SetActive(true);
+                    atrito2inclinada.SetActive(true);
+                }
+                else if (body.transform.position.x > 33.14f && body.transform.position.x < 39.50f)
+                {
+
+                    setanormal.transform.position = new Vector3(body.transform.position.x - 0.00931f, body.transform.position.y + 1.48f, body.transform.position.z);
+                    setaatrito2.transform.position = new Vector3(body.transform.position.x - 0.64431f, body.transform.position.y - 0.401f, body.transform.position.z);
+                    setanormal.SetActive(true);
+                    setaatrito2.SetActive(true);
+
+                }
+               
+     
+               
+                
                 setapeso.SetActive(true);
-                setanormal.SetActive(true);
                 
             }
             else{
                 Time.timeScale = 1;
                 setapeso.SetActive(false);
                 setanormal.SetActive(false);
+                normalinclinada.SetActive(false);
+
+                setaatrito.SetActive(false);
+                setaatrito2.SetActive(false);
+                setaatrito3.SetActive(false);
+                
+                atritoinclinada.SetActive(false);
+                atrito2inclinada.SetActive(false);
+                atrito3inclinada.SetActive(false);
             }
             ispause = !ispause;
         }
-        //---------------------------------------- DEIXAR AS SETAS POSICIONADAS E PAUSAR AUTOMÁTICO
-        /*if (body.position.x > 7 && body.position.x < 8 && aux == 0){
-            Time.timeScale = 0;
-            //StartCoroutine("waitThreeSeconds");
-            setapeso.SetActive(true);
-            setanormal.SetActive(true);
-           // setaatrito.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space)){
-                Time.timeScale = 1;
-                setapeso.SetActive(false);
-                setanormal.SetActive(false);
-                //setaatrito.SetActive(false);
-                aux++;
-
-            }
-        }
-        if (body.position.x > 27 && body.position.x < 28 && aux == 1) {
-            Time.timeScale = 0;
-            //StartCoroutine("waitThreeSeconds");
-            setapeso2.SetActive(true);
-            setanormal2.SetActive(true);
-           // setaatrito2.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Time.timeScale = 1;
-                setapeso2.SetActive(false);
-                setanormal2.SetActive(false);
-               // setaatrito2.SetActive(false);
-                aux++;
-            }
-        }
-        if (body.position.x > 48.75 && body.position.x < 50 && aux == 2){
-            Time.timeScale = 0;
-            //StartCoroutine("waitThreeSeconds");
-            setapeso3.SetActive(true);
-            setanormal3.SetActive(true);
-           // setaatrito3.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Time.timeScale = 1;
-                setapeso3.SetActive(false);
-                setanormal3.SetActive(false);
-               // setaatrito3.SetActive(false);
-                aux++;
-            }
-        }
-        */
-        // --------------------------- CRIAR PLANO INFINITO
-        /*if (body.position.x > 12.50348) {
-             body.position = new Vector3(109/100, -72/100, 0);
-
-         }
-         else if (body.position.x < 1.89) {
-             body.position = new Vector3(12.50348, -6.871222, 0);
-         }*/
+       
     }
 
     void OnCollisionEnter2D(Collision2D col)
         {
-            if(col.gameObject.name == "Fundo")
+        if(col.gameObject.name == "Fundo")
             {
-            amb = "TERRA";
-            }
+        amb = "TERRA";
+        }
         if (col.gameObject.name == "fundo de borracha")
         {
             amb = "BORRACHA";
@@ -139,7 +146,7 @@ public class caixa : MonoBehaviour {
         }
 
     }
-
+    //função que faz esperar por alguns segundos, nesse caso, 5 segundos.   **não ta pegando
     IEnumerator waitThreeSeconds(){
         yield return new WaitForSeconds(5);
     }
@@ -268,3 +275,9 @@ public class caixa : MonoBehaviour {
 
 
 }
+ /*                setanormal.transform.rotation = Quaternion.Inverse(body.transform.rotation);
+                    setanormal.transform.rotation = Quaternion.Inverse(setanormal.transform.rotation);
+                    normalreta.transform.rotation = Quaternion.Inverse(setanormal.transform.rotation);
+                    normalreta.transform.rotation = Quaternion.Inverse(normalreta.transform.rotation);
+                    setanormal.transform.position = new Vector3(body.transform.position.x, body.transform.position.y + 1.48f, body.transform.position.z);
+  */
